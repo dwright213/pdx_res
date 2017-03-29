@@ -5,7 +5,7 @@ echo 'replace nginx configs'
 rm /etc/nginx/sites-enabled/default
 # above: fails all the time anyway. perhaps not needed?
 
-ln -s /opt/site/current/configs/site_nginx.conf /etc/nginx/conf.d/
+ln -s /opt/pdx_res/current/configs/site_nginx.conf /etc/nginx/conf.d/
 # above: handled in ansible?
 
 echo 'run ansible stuff..'
@@ -18,4 +18,4 @@ nginx -t
 
 
 echo 'start server'
-/opt/site/current/venv/bin/uwsgi --ini /opt/site/current/configs/site_uwsgi.ini
+/opt/pdx_res/current/venv/bin/uwsgi --ini /opt/pdx_res/current/configs/site_uwsgi.ini

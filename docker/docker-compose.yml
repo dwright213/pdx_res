@@ -17,7 +17,7 @@ services:
       - "80:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - /opt/site/log/:/var/log/
+      - /opt/pdx_res/log/:/var/log/
 
   site:
     build: site

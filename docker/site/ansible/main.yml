@@ -5,26 +5,26 @@
   tasks:
 
     - name: create log dirs or fail trying
-      command: bash /opt/site/ansible/create_logs.sh
+      command: bash /opt/pdx_res/ansible/create_logs.sh
       tags: ['shell', 'logs']
 
     - name: install latest pip in virtualenv
       pip:
         name: pip
         state: latest
-        virtualenv: '/opt/site/current/venv'
+        virtualenv: '/opt/pdx_res/current/venv'
         extra_args: '--log /var/log/pip.log'
       tags: ['pip', 'install']
 
     - name: install requirements
       pip:
-        requirements: /opt/site/current/requirements.txt
-        virtualenv: /opt/site/current/venv/
+        requirements: /opt/pdx_res/current/requirements.txt
+        virtualenv: /opt/pdx_res/current/venv/
       tags: ['requirements', 'install', 'pip']
 
   #   - name: update uwsgi configs
   #     file:
-  #       src: '/opt/site/current/configs/site_uwsgi.ini'
+  #       src: '/opt/pdx_res/current/configs/site_uwsgi.ini'
   #       dest: '/etc/uwsgi/vassals'
   #       state: link
   #       force: yes
@@ -34,7 +34,7 @@
 
   #   - name: update nginx configs
   #     file:
-  #       src: '/opt/site/current/configs/site_nginx.conf'
+  #       src: '/opt/pdx_res/current/configs/site_nginx.conf'
   #       dest: '/etc/nginx/conf.d'
   #       state: link
   #       force: yes

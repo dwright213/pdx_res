@@ -22,7 +22,7 @@ RUN pip install ansible==2.0
 RUN pip install IPython
 
 # Create site dir
-WORKDIR /opt/site/
+WORKDIR /opt/pdx_res/
 
 # Install uwsgi ini file
 RUN mkdir /etc/uwsgi/
