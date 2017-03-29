@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+{% from "macros.html" import thumb with context %}
+	<div class="card">
+		<h3 class="card-header">bureau of fotos</h3>
+		<div class="card-block">
+			{% for post in posts %}
+
+				{% if post.photoset_layout %}
+					<p>
+						<h5>
+							{{ post.caption }}
+						</h5>
+				{% endif %}
+
+				{% for photo in post.photos %}
+					{{ thumb(photo) }}
+				{% endfor %}
+
+				{% if post.photoset_layout %}
+					</p>
+				{% endif %}
+				
+			{% endfor %}
+
+		</div>
+	</div>
+
+{% endblock %}

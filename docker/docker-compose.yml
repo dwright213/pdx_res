@@ -1,0 +1,45 @@
+version: '2'
+
+services:
+  mongodb:
+    image: "mongo:3.2"
+    volumes:
+    - /opt/pdx_res/docker-mongo/:/data/db/
+    command: "--storageEngine wiredTiger"
+    expose:
+      - '27017'
+
+  nginx:
+    image: nginx:latest
+    links:
+      - site:uwsgi
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - /opt/site/log/:/var/log/
+
+  site:
+    build: site
+    links:
+      - mongodb
+    volumes:
+      # Site code
+      - ~/src/pdx_res/:/opt/pdx_res/current/
+      # Ansible/shell setup code
+      - ~/src/site_deploy/pdx_res/:/opt/pdx_res/
+      # Virtual env
+      - /opt/pdx_res/docker-venv/:/opt/pdx_res/current/venv/
+      # Home dir
+      - /opt/pdx_res/home/:/root/
+      # Logs
+      - /opt/pdx_res/log/:/var/log/
+    environment:
+      MONGODB_HOST: mongodb:27017
+      MONGODB_USE_SSL: 'False'
+    expose:
+      - '3031'
+
+    # command: 'bash /opt/pdx_res/ansible/startserver.sh'
+    # command: /opt/pdx_res/current/venv/bin/uwsgi --ini /opt/pdx_res/site_uwsgi.ini
+    command: current/venv/bin/uwsgi --emperor /opt/pdx_res/current/
