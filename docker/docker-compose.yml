@@ -12,22 +12,22 @@ services:
   nginx:
     image: nginx:latest
     links:
-      - site:uwsgi
+      - pdx_res:uwsgi
     ports:
       - "80:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - /opt/pdx_res/log/:/var/log/
 
-  site:
-    build: site
+  pdx_res:
+    build: pdx_res
     links:
       - mongodb
     volumes:
       # Site code
       - ~/src/pdx_res/:/opt/pdx_res/current/
       # Ansible/shell setup code
-      - ~/src/site_deploy/pdx_res/:/opt/pdx_res/
+      - ~/src/pdx_res/docker/pdx_res/:/opt/pdx_res/
       # Virtual env
       - /opt/pdx_res/docker-venv/:/opt/pdx_res/current/venv/
       # Home dir
@@ -39,7 +39,10 @@ services:
       MONGODB_USE_SSL: 'False'
     expose:
       - '3031'
+    # ports:
+    #   - "3031:3031"
 
     # command: 'bash /opt/pdx_res/ansible/startserver.sh'
     # command: /opt/pdx_res/current/venv/bin/uwsgi --ini /opt/pdx_res/site_uwsgi.ini
+
     command: current/venv/bin/uwsgi --emperor /opt/pdx_res/current/

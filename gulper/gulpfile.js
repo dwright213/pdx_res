@@ -24,7 +24,7 @@ sassets = [
 jsassets = [
 	'../static/js/vendor/jquery.min.js',
 	'../static/js/vendor/tether.js',
-	'../static/js/vendor/bootstrap.js',
+	'../static/js/vendor/bootstrap/*.js',
 	'../static/js/vendor/lightbox.js',
 	'../static/js/*.js'
 ];
@@ -37,7 +37,7 @@ watchDirs = [
 
 
 // meta tasks
-// 
+//
 // watcher
 gulp.task('watch', function() {
 	watch(watchDirs, batch(function(events, done) {
