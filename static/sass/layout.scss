@@ -1,6 +1,17 @@
 body {
 }
 
+$a-tags: 'a, a:active, a:hover, a:visited';
+$a-tags-hover: 'a:active, a:hover, a:focus';
+#{$a-tags} {
+  color: #e8e8e8;
+}
+#{$a-tags-hover} {
+  color: #fff;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Bungee');
+
 #main-container {
 	display: flex;
   min-height: 100vh;
@@ -25,12 +36,225 @@ body {
 
 #navigation {
   width: 100%;
-	background-color: hsla(133, 100%, 50%, 0.0);
-	}
+  background-color: hsla(133, 100%, 50%, 0.0);
+  }
 
 @media screen and (max-width: 543px){
   #navigation {
     order: -1;
     padding-left: 0;
   }
+}
+
+#jumbo {
+  order: 0;
+  margin: 0;
+  min-height: 100vh;
+  border-radius: 0;
+  background-image: url('../img/bridges.jpg');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Bungee', cursive;
+
+  div.banner-large {
+    width: 75%;
+    order: 1;
+    line-height: 1;
+    font-size: 7rem;
+    // color: #fff;
+    text-shadow:
+      rgba(255, 255, 0, .8)   3px -3px 1px,
+      rgba(106, 255, 77, .8) -3px  3px 1px,
+      rgba(0, 240, 232, .8)   3px  3px 1px,
+      rgba(255, 77, 243, .8) -3px -3px 1px;
+    @media screen and (max-width: 992px) {
+      font-size: 6rem;
+      width: 100%;
+    }
+    @media screen and (max-width: 768px) {
+      font-size: 5rem;
+    }
+    @media screen and (max-width: 576px) {
+      font-size: 4rem;
+    }
+    span.banner-medium {
+      order: 0;
+      font-size: 4rem;
+      // color: #fff;
+      @media screen and (max-width: 992px) {
+        font-size: 3rem;
+      }
+      @media screen and (max-width: 576px) {
+        font-size: 2rem;
+      }
+    }
+  }
+
+}
+
+#who {
+  min-height: 100vh;
+  order: 1;
+  background-image: url('../img/protester.jpg');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: 992px) {
+    align-items: flex-start;
+    justify-content: center;
+  }
+  div.callout {
+    order: 0;
+    font-family: 'Bungee', cursive;
+    font-size: 5rem;
+    // color: #fff;
+    align-self: flex-start;
+    margin-bottom: 8rem;
+    margin-left: 15px;
+    text-shadow: 0 0 30px #000;
+    @media screen and (max-width: 992px) {
+      font-size: 4rem;
+      margin-bottom: 2rem;
+    }
+  }
+  div.card {
+    order: 1;
+    background: rgba(0, 0, 0, .8);
+    border-radius: 0;
+    // color: #fff;
+    font-size: 1.1rem;
+    width: 50%;
+    @media screen and (max-width: 992px) {
+      width: 500px;
+    }
+    @media screen and (max-width: 576px) {
+      width: 100%;
+    }
+  }
+}
+
+#connect {
+  min-height: 100vh;
+  order: 2;
+  background-image: url('../img/group.jpg');
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  div#connect-tiles {
+    display: flex;
+    max-width: 992px;
+    flex-wrap: wrap;
+    div.tile-row {
+      display: flex;
+      width: 100%;
+      > div {
+        font-family: 'Carme', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        background-color: hsla(281, 21%, 39%, .85);
+        height: 250px;
+        margin: 3px;
+        padding: 20px;
+        white-space: normal;
+        h1 {
+          font-weight: 600;
+          font-size: 3rem;
+          text-transform: uppercase;
+        }
+        h2 {
+          font-weight: 600;
+          font-size: 2rem;
+          text-transform: uppercase;
+        }
+      }
+      #tile-contact {
+        > img {
+          margin-right: 20px;
+          margin-left: 20px;
+        }
+      }
+      .tile-grow-1 {
+        flex-grow: 1;
+      }
+      .tile-grow-2 {
+        flex-grow: 2;
+      }
+    }
+    @media screen and (max-width: 1000px) {
+      width: 100%;
+    }
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      div.tile-row {
+        flex-direction: column;
+        margin: 3px;
+        div {
+          height: auto;
+          margin: 0;
+          padding: 10px;
+        }
+      }
+
+    }
+
+  }
+
+}
+
+
+// About section
+
+#jumbo-about {
+  order: 0;
+  margin: 0;
+  min-height: 100vh;
+  border-radius: 0;
+  background-image: url('../img/frogsnail.jpg');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Bungee', cursive;
+
+  div.banner-large {
+    width: 75%;
+    order: 1;
+    line-height: 1;
+    font-size: 7rem;
+    // color: #fff;
+    text-shadow:
+      rgba(255, 255, 0, .8)   3px -3px 1px,
+      rgba(106, 255, 77, .8) -3px  3px 1px,
+      rgba(0, 240, 232, .8)   3px  3px 1px,
+      rgba(255, 77, 243, .8) -3px -3px 1px;
+    @media screen and (max-width: 992px) {
+      font-size: 6rem;
+      width: 100%;
+    }
+    @media screen and (max-width: 768px) {
+      font-size: 5rem;
+    }
+    @media screen and (max-width: 576px) {
+      font-size: 4rem;
+    }
+    span.banner-medium {
+      order: 0;
+      font-size: 4rem;
+      // color: #fff;
+      @media screen and (max-width: 992px) {
+        font-size: 3rem;
+      }
+      @media screen and (max-width: 576px) {
+        font-size: 2rem;
+      }
+    }
+  }
+
 }

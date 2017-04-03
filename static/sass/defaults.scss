@@ -2,6 +2,9 @@
 
 body {
 	background-image: url('../img/background.png');
+	font-size: 16px;
+	color: #fff;
+	font-family: 'Carme', sans-serif;
 }
 
 .text-indent {
@@ -17,7 +20,7 @@ body {
 .img-same-height {
     width: auto;
     height: 141px;
-    margin: 5px 0 0 0; 
+    margin: 5px 0 0 0;
 }
 
 div[id*="modal-number-"] {

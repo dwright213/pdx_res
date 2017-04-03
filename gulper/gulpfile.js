@@ -22,10 +22,12 @@ sassets = [
 ];
 
 jsassets = [
+	'../static/js/vendor/almond.js',
 	'../static/js/vendor/jquery.min.js',
 	'../static/js/vendor/tether.js',
 	'../static/js/vendor/bootstrap/*.js',
 	'../static/js/vendor/lightbox.js',
+	'../static/js/vendor/scrollto.js',
 	'../static/js/*.js'
 ];
 
@@ -51,9 +53,11 @@ gulp.task('default', sequence(
 ));
 
 // dev sequence
-gulp.task('dev', sequence(
+gulp.task('dev', function(callback){
+ sequence(
 	'scripts', 'styles', 'prefix'
-));
+	)(callback)
+});
 
 // tasks
 gulp.task('styles', function() {

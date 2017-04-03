@@ -9,12 +9,23 @@ app.config.from_pyfile('settings.cfg')
 
 @app.before_request
 def set_up_nav():
-	g.nav = ['home']
+	g.nav = ['home', 'who', 'about', 'connect']
 
 @app.route('/')
 def home():
-	# abort(403)
+	print('''
+
+	''')
+	print(request.path)
+	print('''
+
+	''')
+
 	return render_template('index.html')
+
+@app.route('/about')
+def about():
+	return render_template('about.html')
 
 
 

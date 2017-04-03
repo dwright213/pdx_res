@@ -1,4 +1,8 @@
-$(document).on('click', '[data-toggle="lightbox"]', function(event) {
-    event.preventDefault();
-    $(this).ekkoLightbox();
-});
+// define(["vendor/jquery"],function($){
+
+// 	$(document).on('click', '[data-toggle="lightbox"]', function(event) {
+// 	    event.preventDefault();
+// 	    $(this).ekkoLightbox();
+// 	});
+
+// })

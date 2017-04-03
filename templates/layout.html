@@ -1,20 +1,14 @@
 {% include 'header.html' %}
 <body>
 
-	<div id="main-container" class='container'>
-		<!--header-->
-			<div id="header">
-				{% include 'jumbo.html' %}
-			</div>
+	<!--navigation, within header-->
+	{% include 'nav.html' %}
 
-			<!--navigation, within header-->
-			{% include 'nav.html' %}
+	<div id="main-container" class=''>
 
 			<!-- content -->
 			<div id="main">
-					<p>
 						{% block content %}{% endblock %}
-					</p>
 			</div>
 
 			<!--footer-->
