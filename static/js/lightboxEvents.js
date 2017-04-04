@@ -6,3 +6,15 @@
 // 	});
 
 // })
+
+// var path = window.location.pathname;
+// if (path == '/about') {
+// 		var newUrl = $('a.nav-link');
+// 		newUrl[0].href = 'http://localhost#who'
+// 		newUrl[1].href = 'http://localhost#connect'
+
+// 		newUrl = $('a.navbar-brand');
+// 		newUrl[0].href = 'http://localhost'
+// 	console.log("yet again..");
+
+// }

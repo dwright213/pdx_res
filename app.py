@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Flask, render_template, request, g, abort, jsonify
+from flask import Flask, render_template, request, g, abort, jsonify, url_for
 import pytumblr, os
 from flask_mongokit import MongoKit, Document, Connection
 
@@ -13,14 +13,6 @@ def set_up_nav():
 
 @app.route('/')
 def home():
-	print('''
-
-	''')
-	print(request.path)
-	print('''
-
-	''')
-
 	return render_template('index.html')
 
 @app.route('/about')
