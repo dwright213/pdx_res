@@ -31,3 +31,4 @@ RUN mkdir /etc/uwsgi/vassals/
 # Install node/npm/etc
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
 RUN apt-get install nodejs -y
+RUN npm install -g gulp@3.9.1

@@ -1,21 +1,21 @@
 {
-  "name": "site",
+  "name": "pdx_res",
   "version": "1.0.0",
-  "description": "dan's personal site asset compiler",
+  "description": "A pretty good asset compiler",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dwright213/site.git"
+    "url": "git+https://github.com/dwright213/pdx_res.git"
   },
   "author": "dan wright",
   "license": "AGPL-3.0",
   "bugs": {
     "url": "https://github.com/dwright213/pdx_res/issues"
   },
-  "homepage": "https://github.com/dwright213/site#readme",
+  "homepage": "https://github.com/dwright213/pdx_res#readme",
   "dependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
