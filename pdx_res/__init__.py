@@ -5,7 +5,7 @@ from flask_mongokit import MongoKit, Document, Connection
 
 
 app = Flask(__name__)
-app.config.from_pyfile('settings.cfg')
+app.config.from_pyfile('../settings.cfg')
 
 @app.before_request
 def set_up_nav():
