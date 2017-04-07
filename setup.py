@@ -8,3 +8,11 @@ setup(
         'flask',
     ],
 )
+
+# AS PER http://flask.pocoo.org/docs/0.12/patterns/packages/
+# AS PER http://flask.pocoo.org/docs/0.12/patterns/packages/
+# AS PER http://flask.pocoo.org/docs/0.12/patterns/packages/
+# AS PER http://flask.pocoo.org/docs/0.12/patterns/packages/
+# AS PER http://flask.pocoo.org/docs/0.12/patterns/packages/
+# AS PER http://flask.pocoo.org/docs/0.12/patterns/packages/
+# AS PER http://flask.pocoo.org/docs/0.12/patterns/packages/
