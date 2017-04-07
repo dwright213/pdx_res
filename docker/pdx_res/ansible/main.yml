@@ -18,29 +18,23 @@
 
     - name: install requirements
       pip:
-        requirements: /opt/pdx_res/current/requirements.txt
+        requirements: /opt/pdx_res/current/pdx_res/requirements.txt
         virtualenv: /opt/pdx_res/current/venv/
       tags: ['requirements', 'install', 'pip']
 
-  #   - name: update uwsgi configs
-  #     file:
-  #       src: '/opt/pdx_res/current/configs/site_uwsgi.ini'
-  #       dest: '/etc/uwsgi/vassals'
-  #       state: link
-  #       force: yes
-  #     notify: restart nginx
-  #     ignore_errors: yes
-  #     tags: ['uwsgi', 'server']
+    - name: install packages based on package.json.
+      npm:
+        path: /opt/pdx_res/current/gulper
+      tags: ['node', 'npm', 'gulp']
 
-  #   - name: update nginx configs
-  #     file:
-  #       src: '/opt/pdx_res/current/configs/site_nginx.conf'
-  #       dest: '/etc/nginx/conf.d'
-  #       state: link
-  #       force: yes
-  #     notify: restart nginx
-  #     tags: ['nginx', 'server']
+    - name: install gulp
+      npm:
+        name: gulp
+        path: /opt/pdx_res/current/gulper
+      tags: ['node', 'npm', 'gulp']
 
-  # handlers:
-  # - name: restart nginx
-  #   command: service nginx restart
+    - name: Run gulp
+      command: /opt/pdx_res/current/gulper/node_modules/gulp/bin/gulp.js
+      args:
+        chdir: /opt/pdx_res/current/gulper
+      tags: ['npm', 'gulp', 'assets']

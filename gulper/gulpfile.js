@@ -16,25 +16,25 @@ var
 	flexbugs = require('postcss-flexbugs-fixes'),
 
 sassets = [
-	'../static/sass/vendor/bootstrap/bootstrap.scss',
-	'../static/sass/vendor/lightbox.css',
-	'../static/sass/*.scss'
+	'../pdx_res/static/sass/vendor/bootstrap/bootstrap.scss',
+	'../pdx_res/static/sass/vendor/lightbox.css',
+	'../pdx_res/static/sass/*.scss'
 ];
 
 jsassets = [
-	'../static/js/vendor/almond.js',
-	'../static/js/vendor/jquery.min.js',
-	'../static/js/vendor/tether.js',
-	'../static/js/vendor/bootstrap/*.js',
-	'../static/js/vendor/lightbox.js',
-	'../static/js/vendor/scrollto.js',
-	'../static/js/*.js'
+	'../pdx_res/static/js/vendor/almond.js',
+	'../pdx_res/static/js/vendor/jquery.min.js',
+	'../pdx_res/static/js/vendor/tether.js',
+	'../pdx_res/static/js/vendor/bootstrap/*.js',
+	'../pdx_res/static/js/vendor/lightbox.js',
+	'../pdx_res/static/js/vendor/scrollto.js',
+	'../pdx_res/static/js/*.js'
 ];
 
 watchDirs = [
-	'../static/sass/**/*.scss',
-	'../static/js/vendor/**/*.js',
-	'../static/js/*.js'
+	'../pdx_res/static/sass/**/*.scss',
+	'../pdx_res/static/js/vendor/**/*.js',
+	'../pdx_res/static/js/*.js'
 ];
 
 
@@ -69,42 +69,42 @@ gulp.task('styles', function() {
 			cascade: false
 		}))
 		.pipe(concatenate('main.css'))
-		.pipe(gulp.dest('../static/dist'))
+		.pipe(gulp.dest('../pdx_res/static/dist'))
 })
 
 gulp.task('scripts', function() {
 	return gulp.src(jsassets)
 		.pipe(concatenate('main.js'))
-		.pipe(gulp.dest('../static/dist'))
+		.pipe(gulp.dest('../pdx_res/static/dist'))
 })
 
 gulp.task('uglify', function() {
-	return gulp.src('../static/dist/main.js')
+	return gulp.src('../pdx_res/static/dist/main.js')
 		.pipe(sourcemaps.init())
 		.pipe(uglify())
 		.pipe(sourcemaps.write('maps'))
-		.pipe(gulp.dest('../static/dist'))
+		.pipe(gulp.dest('../pdx_res/static/dist'))
 })
 
 gulp.task('minify', function() {
-	return gulp.src('../static/dist/main.css')
+	return gulp.src('../pdx_res/static/dist/main.css')
 		.pipe(sourcemaps.init())
 		.pipe(minify())
 		.pipe(sourcemaps.write('maps'))
-		.pipe(gulp.dest('../static/dist'))
+		.pipe(gulp.dest('../pdx_res/static/dist'))
 })
 
 gulp.task('purify', function() {
-	return gulp.src('../static/dist/main.css')
-		.pipe(purify(['../static/js/vendor/*.js', '../static/js/*.js', '../templates/*.html']))
-		.pipe(gulp.dest('../static/dist'))
+	return gulp.src('../pdx_res/static/dist/main.css')
+		.pipe(purify(['../pdx_res/static/js/vendor/*.js', '../pdx_res/static/js/*.js', '../pdx_res/templates/*.html']))
+		.pipe(gulp.dest('../pdx_res/static/dist'))
 })
 
 gulp.task('prefix', function() {
-	return gulp.src('../static/dist/main.css')
+	return gulp.src('../pdx_res/static/dist/main.css')
 		.pipe(autoprefixer({
 			browsers: ['last 3 versions'],
 			cascade: false
 		}))
-		.pipe(gulp.dest('../static/dist'))
+		.pipe(gulp.dest('../pdx_res/static/dist'))
 })
