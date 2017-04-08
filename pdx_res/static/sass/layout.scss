@@ -78,7 +78,7 @@ $a-tags-hover: 'a:active, a:hover, a:focus';
       font-size: 5rem;
     }
     @media screen and (max-width: 576px) {
-      font-size: 4rem;
+      font-size: 3rem;
     }
     span.banner-medium {
       order: 0;
@@ -106,9 +106,9 @@ $a-tags-hover: 'a:active, a:hover, a:focus';
   align-items: center;
   @media screen and (max-width: 992px) {
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
   }
-  div.callout {
+  >div.callout {
     order: 0;
     font-family: 'Bungee', cursive;
     font-size: 5rem;
@@ -118,22 +118,30 @@ $a-tags-hover: 'a:active, a:hover, a:focus';
     margin-left: 15px;
     text-shadow: 0 0 30px #000;
     @media screen and (max-width: 992px) {
-      font-size: 4rem;
+      font-size: 3rem;
       margin-bottom: 2rem;
     }
   }
-  div.card {
-    order: 1;
-    background: rgba(0, 0, 0, .8);
-    border-radius: 0;
-    // color: #fff;
-    font-size: 1.1rem;
-    width: 50%;
-    @media screen and (max-width: 992px) {
-      width: 500px;
-    }
+  .card {
+    max-width: 100%;
     @media screen and (max-width: 576px) {
       width: 100%;
+      margin: 0;
+    }
+    div.card-block {
+      order: 1;
+      background: rgba(0, 0, 0, .8);
+      border-radius: 0;
+      color: #fff;
+      font-size: 1.1rem;
+      // width: 50%;
+      max-width: none;
+      @media screen and (max-width: 992px) {
+        width: 500px;
+      }
+      @media screen and (max-width: 576px) {
+        max-width: 100%;
+      }
     }
   }
 }
@@ -172,6 +180,20 @@ $a-tags-hover: 'a:active, a:hover, a:focus';
           font-size: 2rem;
           text-transform: uppercase;
         }
+        @media screen and (max-width: 576px) {
+          font-size: 1rem;
+          h1 {
+            font-weight: 600;
+            font-size: 2rem;
+            text-transform: uppercase;
+          }
+          h2 {
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+          }
+        }
+
       }
       #tile-contact {
         > img {
@@ -211,50 +233,19 @@ $a-tags-hover: 'a:active, a:hover, a:focus';
 // About section
 
 #about {
+  min-height: 100vh;
   order: 0;
   margin: 0;
-  min-height: 100vh;
   border-radius: 0;
-  background-image: url('../img/frogsnail.jpg');
+  background: url('../img/frogsnail.jpg') top right no-repeat;
+  background-attachment:fixed;
   background-size: cover;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  font-family: 'Carme', sans-serif;
-
-  // div.banner-large {
-  //   width: 75%;
-  //   order: 1;
-  //   line-height: 1;
-  //   font-size: 7rem;
-  //   // color: #fff;
-  //   text-shadow:
-  //     rgba(255, 255, 0, .8)   3px -3px 1px,
-  //     rgba(106, 255, 77, .8) -3px  3px 1px,
-  //     rgba(0, 240, 232, .8)   3px  3px 1px,
-  //     rgba(255, 77, 243, .8) -3px -3px 1px;
-  //   @media screen and (max-width: 992px) {
-  //     font-size: 6rem;
-  //     width: 100%;
-  //   }
-  //   @media screen and (max-width: 768px) {
-  //     font-size: 5rem;
-  //   }
-  //   @media screen and (max-width: 576px) {
-  //     font-size: 4rem;
-  //   }
-  //   span.banner-medium {
-  //     order: 0;
-  //     font-size: 4rem;
-  //     // color: #fff;
-  //     @media screen and (max-width: 992px) {
-  //       font-size: 3rem;
-  //     }
-  //     @media screen and (max-width: 576px) {
-  //       font-size: 2rem;
-  //     }
-  //   }
-  // }
-
+  padding-top: 60px;
+  font-family: 'Carme', sans-serif; 
+  div.card-table {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
 }

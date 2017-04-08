@@ -1,0 +1,62 @@
+
+// Our run of the mill, basic card design.
+$a-tags: 'a, a:active, a:hover, a:visited';
+$a-tags-hover: 'a:active, a:hover, a:focus';
+
+$btn-tags: 'a.btn, a.btn:active, a.btn:hover, a.btn:visited';
+$btn-tags-hover: 'a.btn:active, a.btn:hover, a.btn:focus';
+
+.card {
+	max-width: 450px;
+	border-radius: 0px;
+	color: #292b2c;
+	margin: 25px;
+	border: 0px;
+	background-color: hsla(0, 0%, 0%, 0);
+	
+	#{$a-tags} {
+	  color: #292b2c;
+	}
+	#{$a-tags-hover} {
+	  color: #000;
+	  text-decoration: underline;
+	}
+
+	#{$btn-tags} {
+	  color: #292b2c;
+	}
+	#{$btn-tags-hover} {
+	  color: #fff;
+	  text-decoration: none;
+	  background-color: #6b4f78;
+	}
+	@media screen and (max-width: 992px){
+		max-width: 100%;
+		margin: 10px;
+	}
+
+	.card-header {
+		font-size: 2rem;
+		font-weight: 600;
+		border-bottom: 0px;
+		background-color: hsla(0, 100%, 100%, 0.79);
+		border-radius: 0px;
+	}
+	.card-block {
+		background-color: #fff;
+	}
+	.card-footer {
+		font-weight: 600;
+		border-top: 0px;
+		background-color: hsla(0, 100%, 100%, 0.79);
+		border-radius: 0px;
+	}
+
+}
+
+
+// for cards used as section headers
+div.card#header-card {
+	max-width: 100%;
+}
+
