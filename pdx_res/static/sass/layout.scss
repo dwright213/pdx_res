@@ -55,7 +55,8 @@ $a-tags-hover: 'a:active, a:hover, a:focus';
   background-size: cover;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 60px;
   align-items: center;
   font-family: 'Bungee', cursive;
 
@@ -66,19 +67,20 @@ $a-tags-hover: 'a:active, a:hover, a:focus';
     font-size: 7rem;
     // color: #fff;
     text-shadow:
-      rgba(255, 255, 0, .8)   3px -3px 1px,
-      rgba(106, 255, 77, .8) -3px  3px 1px,
-      rgba(0, 240, 232, .8)   3px  3px 1px,
-      rgba(255, 77, 243, .8) -3px -3px 1px;
+      rgba(255, 255, 0, .8)   1px -1px 1px,
+      rgba(106, 255, 77, .8) -1px  1px 1px,
+      rgba(0, 240, 232, .8)   1px  1px 1px,
+      rgba(255, 77, 243, .8) -1px -1px 1px;
     @media screen and (max-width: 992px) {
       font-size: 6rem;
       width: 100%;
     }
     @media screen and (max-width: 768px) {
-      font-size: 5rem;
+      font-size: 4rem;
     }
     @media screen and (max-width: 576px) {
       font-size: 3rem;
+      // justify-content: flex-start;
     }
     span.banner-medium {
       order: 0;

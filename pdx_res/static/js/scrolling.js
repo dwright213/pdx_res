@@ -13,7 +13,7 @@
 	    	$(window).stop(true).scrollTo(this.hash, {
 	    		duration:700,
 	    		interrupt:true,
-	    		offset: -54
+	    		offset: -30
 	    	});
 	    }
 	  });
