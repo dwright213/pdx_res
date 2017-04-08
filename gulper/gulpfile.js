@@ -49,7 +49,7 @@ gulp.task('watch', function() {
 
 // prod sequence
 gulp.task('default', sequence(
-	'scripts', 'uglify', 'styles', 'purify', 'prefix', 'minify'
+	'scripts', 'uglify', 'styles', 'prefix', 'minify'
 ));
 
 // dev sequence
