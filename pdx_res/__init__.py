@@ -1,7 +1,7 @@
 from datetime import datetime
 from flask import Flask, render_template, request, g, abort, jsonify, url_for
 import pytumblr, os
-from flask_mongokit import MongoKit, Document, Connection
+# from flask_mongokit import MongoKit, Document, Connection
 
 
 app = Flask(__name__)

@@ -1,14 +1,6 @@
 version: '2'
 
 services:
-  mongodb:
-    restart: unless-stopped
-    image: "mongo:3.2"
-    volumes:
-    - /opt/pdx_res/docker-mongo/:/data/db/
-    command: "--storageEngine wiredTiger"
-    expose:
-      - '27017'
 
   nginx:
     restart: unless-stopped
@@ -24,8 +16,6 @@ services:
   pdx_res:
     restart: unless-stopped
     build: pdx_res
-    links:
-      - mongodb
     volumes:
       # Site code
       - ~/src/pdx_res/:/opt/pdx_res/current/
@@ -44,8 +34,6 @@ services:
       FLASK_DEBUG: 'true'
     expose:
       - '3031'
-    # ports:
-    #   - "3031:3031"
 
     # command: 'bash /opt/pdx_res/ansible/startserver.sh'
     # command: /opt/pdx_res/current/venv/bin/uwsgi --ini /opt/pdx_res/site_uwsgi.ini
