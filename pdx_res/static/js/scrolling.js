@@ -18,8 +18,10 @@
 	    }
 	  });
 
-	  $('.navbar-collapse a, a.navbar-brand').click(function(){
-    	$(".navbar-collapse").collapse('hide');
+	  $('li.nav-item, a.navbar-brand').click(function(){
+    	if ($(this).attr('class').indexOf('dropdown') == -1) {
+    		$('.navbar-collapse').collapse('hide');
+    	}
 		});
 
 	});

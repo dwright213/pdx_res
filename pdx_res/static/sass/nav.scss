@@ -1,0 +1,19 @@
+$a-tags: 'a, a:active, a:hover, a:visited';
+$a-tags-hover: 'a:active, a:hover, a:focus';
+
+nav	{
+
+	div.dropdown-menu {
+		background-color: #292b2c;
+		border-radius: 0px;
+		border: 0px;
+		#{$a-tags} {
+			color: rgba(255, 255, 255, 0.5);
+		}
+		#{$a-tags-hover} {
+			color: rgba(255, 255, 255, 0.75);			
+			background-color: #292b2c;
+		}
+	}
+
+}

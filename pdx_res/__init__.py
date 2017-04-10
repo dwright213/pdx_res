@@ -1,7 +1,6 @@
 from datetime import datetime
 from flask import Flask, render_template, request, g, abort, jsonify, url_for
 import pytumblr, os
-# from flask_mongokit import MongoKit, Document, Connection
 
 
 app = Flask(__name__)
@@ -22,4 +21,4 @@ def about():
 
 
 if __name__ == "__main__":
-	app.run(debug=False,host='0.0.0.0')
+	app.run(host='0.0.0.0')
