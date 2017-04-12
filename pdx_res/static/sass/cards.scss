@@ -60,3 +60,15 @@ div.card#header-card {
 	max-width: 100%;
 }
 
+div.card-fullwidth {
+	width: 70%;
+	margin: auto;
+	margin-top: 25px;
+
+	@media screen and (max-width: 992px){
+		margin-top: 10px;
+		width: 80%;
+	}
+
+}
+

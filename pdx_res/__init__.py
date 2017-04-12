@@ -18,6 +18,10 @@ def home():
 def about():
 	return render_template('page/about.html')
 
+@app.route('/workgroups/<group>')
+def workgroups(group):
+	return render_template('page/%s.html' % group)
+
 
 
 if __name__ == "__main__":

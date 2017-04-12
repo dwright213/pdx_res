@@ -14,7 +14,7 @@ $a-tags-hover: 'a:active, a:hover, a:focus';
 
 #main-container {
 	display: flex;
-  min-height: 100vh;
+  height: inherit;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -28,6 +28,7 @@ $a-tags-hover: 'a:active, a:hover, a:focus';
 #main {
   flex: 1;
   width: 100%;
+  height: inherit;
 }
 
 #footer {
