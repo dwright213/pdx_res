@@ -1,132 +1,36 @@
 {% extends "/layout.html" %}
 {% block content %}
 <div id="about">
-
-	<div class="card" id="header-card">
-	<div class="card-block">
-		<h1 class="card-title">Portland's Resistance</h1>
-		<h6 class="card-subtitle mb-2 text-muted">Expanding on the "who" section a little more.</h6>
-		<p class="card-text">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet vulputate nibh. Pellentesque tempor tristique est quis bibendum. Phasellus id nunc in dolor tempus molestie et tincidunt dui. Maecenas nec mollis augue, tincidunt condimentum justo. Nullam imperdiet nunc elit, nec imperdiet sapien consequat eu. Vivamus sollicitudin sem nulla, ut fermentum purus auctor ac. In a mauris efficitur, convallis lectus non, dignissim quam. Sed ultrices justo ac turpis porttitor posuere. Morbi ornare orci vel condimentum porta. Nam iaculis consectetur nulla, at venenatis massa congue id. Donec at dapibus magna, nec tristique velit. In metus felis, maximus eget gravida in, dapibus eu nisi. Nullam efficitur accumsan sapien quis finibus.
-		</p>
-	</div>
-	<div class="card-footer text-right">
-		<a href="#" class="card-link">Card link</a>
-		<a href="#" class="card-link">Another link</a>
-	</div>
-	</div>
-
 	<div class="card-table">
 	<!-- card table begins -->
 
-		<div class="card">
-			<h3 class="card-header">Criminal Justice Reform</h3>
-			<div class="card-block">
-				<h4 class="card-title">Extended Lorem Ipsum edition.</h4>
-				<p class="card-text">
-					An excerpt of the full text, probably pulled in from our Medium.
-					<br>
-					At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
-				</p>
-			</div>
-			<div class="card-footer text-right">
-				<a href="#" class="btn btn-outline-secondary">View full text</a>
-			</div>
-		</div>
+	<div class="col-md-9 text-right">
+		<h1 class=""><strong>policy and articles</strong></h1>
+		<h6 class="card-subtitle mb-2 text-muted">Styling since 2016</h6>
+	</div>
 
-		<div class="card">
-			<h3 class="card-header">Climate Change</h3>
-			<div class="card-block">
-				<h4 class="card-title">Extended Lorem Ipsum edition.</h4>
-				<p class="card-text">
-					An excerpt of the full text, probably pulled in from our Medium.
-					<br>
-					At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
-				</p>
-			</div>
-			<div class="card-footer text-right">
-				<a href="#" class="btn btn-outline-secondary">View full text</a>
-			</div>
-		</div>
 
-		<div class="card">
-			<h3 class="card-header">Criminal Justice Reform</h3>
-			<div class="card-block">
-				<h4 class="card-title">Extended Lorem Ipsum edition.</h4>
-				<p class="card-text">
-					An excerpt of the full text, probably pulled in from our Medium.
-					<br>
-					At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
-				</p>
-			</div>
-			<div class="card-footer text-right">
-				<a href="#" class="btn btn-outline-secondary">View full text</a>
-			</div>
-		</div>
+    {% for post in posts %}
+			<div class="card">
+				<h3 class="card-header">{{ post.title }}</h3>
+				<div class="card-block">
+					<h6 class="card-subtitle mb-2 text-muted">{{ post.date }}</h6>
+					<p class="card-text">
+					{{ post.body|safe }}
+					</p>
+				</div>
+				<div class="card-footer text-right">
 
-		<div class="card">
-			<h3 class="card-header">Climate Change</h3>
-			<div class="card-block">
-				<h4 class="card-title">Extended Lorem Ipsum edition.</h4>
-				<p class="card-text">
-					An excerpt of the full text, probably pulled in from our Medium.
-					<br>
-					At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
-				</p>
+				{% for tag in post.tags %}
+					<a href="#" class="btn btn-outline-secondary tags-button">#{{tag}}</a>
+    		{% endfor %}
+					<a href="{{ post.link }}" class="btn btn-outline-secondary">read on medium</a>
+				</div>
 			</div>
-			<div class="card-footer text-right">
-				<a href="#" class="btn btn-outline-secondary">View full text</a>
-			</div>
-		</div>
-
-		<div class="card">
-			<h3 class="card-header">Criminal Justice Reform</h3>
-			<div class="card-block">
-				<h4 class="card-title">Extended Lorem Ipsum edition.</h4>
-				<p class="card-text">
-					An excerpt of the full text, probably pulled in from our Medium.
-					<br>
-					At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
-				</p>
-			</div>
-			<div class="card-footer text-right">
-				<a href="#" class="btn btn-outline-secondary">View full text</a>
-			</div>
-		</div>
-
-		<div class="card">
-			<h3 class="card-header">Climate Change</h3>
-			<div class="card-block">
-				<h4 class="card-title">Extended Lorem Ipsum edition.</h4>
-				<p class="card-text">
-					An excerpt of the full text, probably pulled in from our Medium.
-					<br>
-					At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
-				</p>
-			</div>
-			<div class="card-footer text-right">
-				<a href="#" class="btn btn-outline-secondary">View full text</a>
-			</div>
-		</div>
-
-		<div class="card">
-			<h3 class="card-header">Climate Change</h3>
-			<div class="card-block">
-				<h4 class="card-title">Extended Lorem Ipsum edition.</h4>
-				<p class="card-text">
-					An excerpt of the full text, probably pulled in from our Medium.
-					<br>
-					At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
-				</p>
-			</div>
-			<div class="card-footer text-right">
-				<a href="#" class="btn btn-outline-secondary">View full text</a>
-			</div>
-		</div>
-
+    {% endfor %}
 
 	<!-- end .card-table -->
-	</div>	
+	</div>
 </div>
 
 {% endblock %}

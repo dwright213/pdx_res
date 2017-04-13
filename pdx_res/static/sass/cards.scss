@@ -1,21 +1,48 @@
 
 // Our run of the mill, basic card design.
+
+@import 'vendor/bootstrap/_variables.scss';
+
 $a-tags: 'a, a:active, a:hover, a:visited';
 $a-tags-hover: 'a:active, a:hover, a:focus';
 
 $btn-tags: 'a.btn, a.btn:active, a.btn:hover, a.btn:visited';
 $btn-tags-hover: 'a.btn:active, a.btn:hover, a.btn:focus';
 
+$tags-btn-tags: 'a.tags-button, a.tags-button:active, a.tags-button:hover, a.tags-button:visited';
+$tags-btn-tags-hover: 'a.tags-button:active, a.tags-button:hover, a.tags-button:focus';
+
 .card {
-	max-width: 450px;
+	max-width: 75%;
 	border-radius: 0px;
 	color: #292b2c;
 	margin: 25px;
 	border: 0px;
 	background-color: hsla(0, 0%, 0%, 0);
-	
+
+	figure {
+	  // Ensures the caption's text aligns with the image.
+	  display: inline-block;
+		max-width: 50%;
+		text-align: center!important;
+		img {
+		  margin-bottom: ($spacer-y / 2);
+		  line-height: 1;
+		  width: 100%;
+		  border-radius: .25rem;
+		}
+	figcaption {
+	  font-size: 70%;
+	  color: $figure-caption-color;
+		}
+	}
+
+
+
+
 	#{$a-tags} {
-	  color: #292b2c;
+	  color: #5e5e5e;
+	  text-decoration: underline;
 	}
 	#{$a-tags-hover} {
 	  color: #000;
@@ -24,15 +51,26 @@ $btn-tags-hover: 'a.btn:active, a.btn:hover, a.btn:focus';
 
 	#{$btn-tags} {
 	  color: #292b2c;
+	  text-decoration: none;
 	}
 	#{$btn-tags-hover} {
 	  color: #fff;
 	  text-decoration: none;
 	  background-color: #6b4f78;
+
 	}
+	#{$tags-btn-tags-hover} {
+	  color: #fff;
+	  text-decoration: none;
+	  background-color: #5bc0de;
+
+	}
+
 	@media screen and (max-width: 992px){
 		max-width: 100%;
-		margin: 10px;
+		margin: 0px;
+		margin-top: 15px;
+		margin-bottom: 15px;
 	}
 
 	.card-header {
@@ -44,6 +82,7 @@ $btn-tags-hover: 'a.btn:active, a.btn:hover, a.btn:focus';
 	}
 	.card-block {
 		background-color: #fff;
+		word-wrap: break-word;
 	}
 	.card-footer {
 		font-weight: 600;

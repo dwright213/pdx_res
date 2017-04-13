@@ -1,7 +1,7 @@
 from datetime import datetime
 from flask import Flask, render_template, request, g, abort, jsonify, url_for
 import pytumblr, os
-import requests, json, xmltodict
+import requests, json, xmltodict, time
 
 def medium_xml_get():
 	url = 'https://medium.com/feed/@pdxresistance'
@@ -13,10 +13,11 @@ def transmogrify(medium_feed):
 	posts = medium_feed['rss']['channel']['item']
 	for post in posts:
 		current = {}
+		date = datetime.strptime(post['pubDate'], '%a, %d %b %Y %H:%M:%S GMT').strftime('%b %-d, %Y')
 		current['title'] = post['title']
 		current['body'] = post['content:encoded']
 		current['link'] = post['link']
-		current['date'] = post['pubDate']
+		current['date'] = date
 		current['tags'] = post['category']
 		post_list.append(current)
 
@@ -35,14 +36,17 @@ def home():
 
 @app.route('/about')
 def about():
-	return render_template('page/about.html')
+	data = xmltodict.parse(medium_xml_get())
+	posts = transmogrify(data)
+	return render_template('page/about.html', posts=posts)
 
 
 @app.route('/xml_post')
 def xml_post():
 	data = xmltodict.parse(medium_xml_get())
 	posts = transmogrify(data)
-	return jsonify(posts)
+	# return jsonify(posts)
+	return jsonify(data)
 
 
 

@@ -243,8 +243,12 @@ $a-tags-hover: 'a:active, a:hover, a:focus';
   background: url('../img/frogsnail.jpg') top right no-repeat;
   background-attachment:fixed;
   background-size: cover;
-  padding-top: 60px;
-  font-family: 'Carme', sans-serif; 
+  padding-top: 100px;
+  font-family: 'Carme', sans-serif;
+  @media screen and (max-width: 992px){
+    padding-top: 60px;
+  }
+
   div.card-table {
     display: flex;
     flex-wrap: wrap;
