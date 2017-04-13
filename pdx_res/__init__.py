@@ -45,7 +45,6 @@ def about():
 def xml_post():
 	data = xmltodict.parse(medium_xml_get())
 	posts = transmogrify(data)
-	# return jsonify(posts)
 	return jsonify(data)
 
 
