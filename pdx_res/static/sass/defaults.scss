@@ -2,6 +2,7 @@
 
 // responsive typography
 html {
+  height: 100vh;
   font-size: 16px;
 }
 @media screen and (max-width: 576px){
@@ -27,6 +28,7 @@ html {
 
 body {
 
+  	height: inherit;
 	background-color: #101011;
 	font-size: 16px;
 	color: #fff;

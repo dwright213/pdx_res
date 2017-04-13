@@ -7,14 +7,10 @@
 	<div id="main-container" class=''>
 
 			<!-- content -->
-			<div id="main">
-						{% block content %}{% endblock %}
-			</div>
-
-			<!--footer-->
-			<div id="footer">
-				{% include 'partial/footer.html' %}
-			</div>
+		<div id="main">
+					{% block content %}{% endblock %}
+		</div>
 	</div>
-
 </body>
+<!--footer-->
+{% include 'partial/footer.html' %}
