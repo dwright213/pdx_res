@@ -6,11 +6,16 @@
 
 	<div id="main-container" class=''>
 
-			<!-- content -->
+		<!-- content -->
 		<div id="main">
 					{% block content %}{% endblock %}
 		</div>
+		<!-- end content -->
+
+
 	</div>
+	<!-- fixed position div to credit background photogs -->
+	{% include 'partial/photocredit.html' %}
 </body>
 <!--footer-->
 {% include 'partial/footer.html' %}

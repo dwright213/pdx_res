@@ -28,6 +28,7 @@ jsassets = [
 	'../pdx_res/static/js/vendor/bootstrap/*.js',
 	'../pdx_res/static/js/vendor/lightbox.js',
 	'../pdx_res/static/js/vendor/scrollto.js',
+	'../pdx_res/static/js/vendor/exif.js',
 	'../pdx_res/static/js/*.js'
 ];
 

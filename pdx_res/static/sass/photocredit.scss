@@ -1,0 +1,15 @@
+div#photocredit {
+	color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+  position: fixed;
+  bottom: 33%;
+  left: 0px;
+  font-size: 1.4rem;
+	height: 1.4rem;
+	width: 1.4rem;
+  line-height: 1.4rem;
+  white-space: nowrap;
+  div {
+  	transform: rotate(90deg);
+  }
+}
