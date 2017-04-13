@@ -12,4 +12,7 @@ div#photocredit {
   div {
   	transform: rotate(90deg);
   }
+  div:after {
+  	content: attr(data-content);
+  }
 }
