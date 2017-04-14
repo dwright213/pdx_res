@@ -1,8 +1,15 @@
 from datetime import datetime
 from flask import Flask, render_template, request, g, abort, jsonify, url_for
+from twitter import *
 import pytumblr, os
 import requests, json, xmltodict, time
 
+
+app = Flask(__name__)
+app.config.from_pyfile('../settings.cfg')
+
+
+# medium stuff can chill here for now
 def medium_xml_get():
 	url = 'https://medium.com/feed/@pdxresistance'
 	r = requests.get(url)
@@ -20,11 +27,21 @@ def transmogrify(medium_feed):
 		current['date'] = date
 		current['tags'] = post['category']
 		post_list.append(current)
-
 	return post_list
 
-app = Flask(__name__)
-app.config.from_pyfile('../settings.cfg')
+
+# twitter stuff can squat here for the time being
+twitter = Twitter(auth=OAuth(\
+	app.config['TWITTER_TOKEN'],\
+	app.config['TWITTER_TOKEN_SECRET'],\
+	app.config['TWITTER_CONSUMER_KEY'],\
+	app.config['TWITTER_CONSUMER_SECRET'])) 
+
+	# fetch 3 tweets from ITP_NYU
+	# itpTweets = twitter.statuses.user_timeline(screen_name='itp_nyu', count=10)
+	
+	# # app.logger.debug(itpTweets)
+
 
 @app.before_request
 def set_up_nav():
@@ -51,15 +68,20 @@ def xml_post():
 def workgroups(group):
 	return render_template('page/%s.html' % group)
 
-# https://github.com/johnschimmel/Python-Twitter-Flask-Example/blob/master/app.py
-# https://github.com/johnschimmel/Python-Twitter-Flask-Example/blob/master/app.py
-# https://github.com/johnschimmel/Python-Twitter-Flask-Example/blob/master/app.py
-# https://github.com/johnschimmel/Python-Twitter-Flask-Example/blob/master/app.py
-# https://github.com/johnschimmel/Python-Twitter-Flask-Example/blob/master/app.py
-# https://github.com/johnschimmel/Python-Twitter-Flask-Example/blob/master/app.py
-# https://github.com/johnschimmel/Python-Twitter-Flask-Example/blob/master/app.py
-# https://github.com/johnschimmel/Python-Twitter-Flask-Example/blob/master/app.py
-# https://github.com/johnschimmel/Python-Twitter-Flask-Example/blob/master/app.py
+
+@app.route('/tweets')
+def tweets():
+	tweets = twitter.statuses.user_timeline(screen_name='pdx_resistance', count=10)
+	tweetpile = {
+		'title': 'hey heres some tweetz',
+		'tweets': tweets
+	}          
+	return jsonify(tweetpile)
+
+@app.route('/connect')
+def connect():
+	tweetpile = twitter.statuses.user_timeline(screen_name='pdx_resistance', count=10)
+	return render_template('page/connect.html', tweets=tweetpile)
 
 
 if __name__ == "__main__":

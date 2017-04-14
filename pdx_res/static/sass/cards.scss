@@ -19,6 +19,7 @@ $tags-btn-tags-hover: 'a.tags-button:active, a.tags-button:hover, a.tags-button:
 	margin: 25px;
 	border: 0px;
 	background-color: hsla(0, 0%, 0%, 0);
+	z-index: 1;
 
 	figure {
 	  // Ensures the caption's text aligns with the image.

@@ -9,6 +9,7 @@ div#photocredit {
 	width: 1.4rem;
   line-height: 1.4rem;
   white-space: nowrap;
+  z-index: 0;
   div {
   	transform: rotate(90deg);
   }

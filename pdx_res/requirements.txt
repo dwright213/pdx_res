@@ -13,3 +13,5 @@ PyTumblr==0.0.6
 uWSGI==2.0.13.1
 Werkzeug==0.11.11
 xmltodict==0.10.2
+Twitter==1.17.1
+requests==2.13.0

@@ -1,0 +1,30 @@
+{% extends "/layout.html" %}
+{% block content %}
+<div id="about">
+	<div class="card-table">
+	<!-- card table begins -->
+
+		<div class="col-md-9 text-right">
+			<h1 class=""><strong>tweets?</strong></h1>
+			<h6 class="card-subtitle mb-2">Tweet gathering.</h6>
+		</div>
+
+		<p>
+			{% for tweet in tweets %}
+			<h2>	
+				{{ tweet.created_at }}
+				<br>
+				{{ tweet.text }}
+				<br>
+			</h2>
+
+			{% endfor %}
+
+
+		</p>
+
+	<!-- end .card-table -->
+	</div>
+</div>
+
+{% endblock %}
