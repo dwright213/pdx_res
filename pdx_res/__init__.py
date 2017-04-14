@@ -51,6 +51,15 @@ def xml_post():
 def workgroups(group):
 	return render_template('page/%s.html' % group)
 
+# https://github.com/johnschimmel/Python-Twitter-Flask-Example/blob/master/app.py
+# https://github.com/johnschimmel/Python-Twitter-Flask-Example/blob/master/app.py
+# https://github.com/johnschimmel/Python-Twitter-Flask-Example/blob/master/app.py
+# https://github.com/johnschimmel/Python-Twitter-Flask-Example/blob/master/app.py
+# https://github.com/johnschimmel/Python-Twitter-Flask-Example/blob/master/app.py
+# https://github.com/johnschimmel/Python-Twitter-Flask-Example/blob/master/app.py
+# https://github.com/johnschimmel/Python-Twitter-Flask-Example/blob/master/app.py
+# https://github.com/johnschimmel/Python-Twitter-Flask-Example/blob/master/app.py
+# https://github.com/johnschimmel/Python-Twitter-Flask-Example/blob/master/app.py
 
 
 if __name__ == "__main__":
