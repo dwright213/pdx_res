@@ -1,0 +1,55 @@
+div.tweet-card {
+
+	max-width: none;
+	.img-thumbnail {
+		margin-right: 5px;
+	}
+	.card-header {
+		padding: 0.5rem .5rem;
+		font-size: 1.2rem;
+	}
+	.card-block {
+		padding: 1rem;
+		padding-top: 1.5rem;
+	}
+}
+
+#connect {
+	min-height: 100vh;
+	order: 0;
+	margin: 0;
+	border-radius: 0;
+	background: url('../img/protest-shotboxer.com-.jpg') top right no-repeat;
+	background-attachment:fixed;
+	background-size: cover;
+	padding-top: 100px;
+	font-family: 'Carme', sans-serif;
+	z-index: 0;
+	@media screen and (max-width: 992px){
+		padding-top: 60px;
+	}
+	.card-columns{
+		margin-top: 25px;
+	}
+	div.card-table {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: flex-start;
+	}
+	// @media (min-width: 1200px){
+	// 	.card-columns {
+	// 		column-count: 4;
+	// 	}
+	// }
+	// @media (min-width: 768px){
+	// 	.card-columns {
+	// 		column-count: 3;
+	// 	}
+	// }
+	// @media (min-width: 576px){
+	// 	.card-columns {
+	// 		column-count: 2;
+	// 	}
+	// }
+}

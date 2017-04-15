@@ -71,7 +71,7 @@ def workgroups(group):
 
 @app.route('/tweets')
 def tweets():
-	tweets = twitter.statuses.user_timeline(screen_name='pdx_resistance', count=10)
+	tweets = twitter.statuses.user_timeline(screen_name='cbeckpdx', count=20)
 	tweetpile = {
 		'title': 'hey heres some tweetz',
 		'tweets': tweets
@@ -80,7 +80,7 @@ def tweets():
 
 @app.route('/connect')
 def connect():
-	tweetpile = twitter.statuses.user_timeline(screen_name='pdx_resistance', count=10)
+	tweetpile = twitter.statuses.user_timeline(screen_name='pdx_resistance', count=20)
 	return render_template('page/connect.html', tweets=tweetpile)
 
 

@@ -1,27 +1,40 @@
 {% extends "/layout.html" %}
 {% block content %}
-<div id="about">
+<div id="connect">
 	<div class="card-table">
 	<!-- card table begins -->
 
-		<div class="col-md-9 text-right">
-			<h1 class=""><strong>tweets?</strong></h1>
-			<h6 class="card-subtitle mb-2">Tweet gathering.</h6>
+		<div class="col-lg-10 text-right">
+			<h1 class=""><strong>connect</strong></h1>
+			<h6 class="card-subtitle mb-2">where are we at on social media?</h6>
 		</div>
 
-		<p>
+		<div class="card-columns col-lg-10">
+			
 			{% for tweet in tweets %}
-			<h2>	
-				{{ tweet.created_at }}
-				<br>
-				{{ tweet.text }}
-				<br>
-			</h2>
-
+				<div class="card tweet-card">
+				{% if tweet.entities.media %}
+					{% for media in tweet.entities.media %}
+						{% if media.type == 'photo' %}
+							<img class="card-img-top img-fluid" src="{{ media.media_url_https }}" alt="Card image cap">
+						{% endif %}
+					{% endfor %}	
+				{% endif %}
+				 	<div class="card-header">
+					  	<img class="img-thumbnail float-left" src="{{tweet.user.profile_image_url_https}}">
+					    <strong>
+					    	@{{ tweet.user.name }}
+					    </strong>
+					</div>
+						<div class="card-block">
+						<p class="card-text">
+						{{ tweet.text }}
+						</p>
+					</div>
+				</div>
 			{% endfor %}
 
-
-		</p>
+		</div>
 
 	<!-- end .card-table -->
 	</div>

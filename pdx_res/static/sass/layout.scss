@@ -65,11 +65,23 @@ $a-tags-hover: 'a:active, a:hover, a:focus';
   @media screen and (max-width: 992px){
     padding-top: 60px;
   }
+  .card {
+    max-width: 75%;
+    border-radius: 0px;
+    margin: 25px;
+    @media screen and (max-width: 992px){
+      max-width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
 
   div.card-table {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-  }
+  } 
 }
+
