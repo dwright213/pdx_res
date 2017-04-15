@@ -35,12 +35,13 @@ twitter = Twitter(auth=OAuth(\
 	app.config['TWITTER_TOKEN'],\
 	app.config['TWITTER_TOKEN_SECRET'],\
 	app.config['TWITTER_CONSUMER_KEY'],\
-	app.config['TWITTER_CONSUMER_SECRET'])) 
+	app.config['TWITTER_CONSUMER_SECRET']))
 
-	# fetch 3 tweets from ITP_NYU
-	# itpTweets = twitter.statuses.user_timeline(screen_name='itp_nyu', count=10)
-	
-	# # app.logger.debug(itpTweets)
+# jinja filter haning around here momentarily
+@app.template_filter()
+def format_date(date_string):
+	date = datetime.strptime(date_string, '%a %b %d %H:%M:%S +0000 %Y').strftime('%-m/%-d')
+	return date
 
 
 @app.before_request
@@ -71,16 +72,16 @@ def workgroups(group):
 
 @app.route('/tweets')
 def tweets():
-	tweets = twitter.statuses.user_timeline(screen_name='cbeckpdx', count=20)
+	tweets = twitter.statuses.user_timeline(screen_name='pdx_resistance', count=20)
 	tweetpile = {
 		'title': 'hey heres some tweetz',
 		'tweets': tweets
-	}          
+	}
 	return jsonify(tweetpile)
 
 @app.route('/connect')
 def connect():
-	tweetpile = twitter.statuses.user_timeline(screen_name='pdx_resistance', count=20)
+	tweetpile = twitter.statuses.user_timeline(screen_name='pdx_resistance', count=100)
 	return render_template('page/connect.html', tweets=tweetpile)
 
 

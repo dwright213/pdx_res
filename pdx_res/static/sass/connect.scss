@@ -10,7 +10,6 @@ div.tweet-card {
 	}
 	.card-block {
 		padding: 1rem;
-		padding-top: 1.5rem;
 	}
 }
 
@@ -37,19 +36,5 @@ div.tweet-card {
 		justify-content: center;
 		align-items: flex-start;
 	}
-	// @media (min-width: 1200px){
-	// 	.card-columns {
-	// 		column-count: 4;
-	// 	}
-	// }
-	// @media (min-width: 768px){
-	// 	.card-columns {
-	// 		column-count: 3;
-	// 	}
-	// }
-	// @media (min-width: 576px){
-	// 	.card-columns {
-	// 		column-count: 2;
-	// 	}
-	// }
+
 }

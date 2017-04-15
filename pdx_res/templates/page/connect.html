@@ -10,7 +10,7 @@
 		</div>
 
 		<div class="card-columns col-lg-10">
-			
+
 			{% for tweet in tweets %}
 				<div class="card tweet-card">
 				{% if tweet.entities.media %}
@@ -18,13 +18,19 @@
 						{% if media.type == 'photo' %}
 							<img class="card-img-top img-fluid" src="{{ media.media_url_https }}" alt="Card image cap">
 						{% endif %}
-					{% endfor %}	
+					{% endfor %}
 				{% endif %}
 				 	<div class="card-header">
 					  	<img class="img-thumbnail float-left" src="{{tweet.user.profile_image_url_https}}">
-					    <strong>
-					    	@{{ tweet.user.name }}
-					    </strong>
+				    	<div class="twitter-name">
+				    		@{{ tweet.user.name }}
+				    	</div>
+				    	<div class="tweet-date hidden-md-down text-right">
+				    		<small class="text-muted">{{tweet.created_at|format_date}}</small>
+				    	</div>
+				    	<div class="tweet-date hidden-sm-up text-right">
+				    		<small class="text-muted">{{tweet.created_at|format_date}}</small>
+				    	</div>
 					</div>
 						<div class="card-block">
 						<p class="card-text">

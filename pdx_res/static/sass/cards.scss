@@ -95,6 +95,47 @@ $tags-btn-tags-hover: 'a.tags-button:active, a.tags-button:hover, a.tags-button:
 	}
 
 }
+// for tweet cards in masonry grids
+.card-columns {
+		>.tweet-card {
+			@media screen and (max-width: 576px){
+				margin-left: 0;
+				margin-right: 0;
+			}
+			>.card-header {
+				overflow: visible;
+				max-height: 3rem;
+		    display: flex;
+		    align-items: center;
+		    z-index: 1;
+		    font-size: 1.1rem;
+		    >.twitter-name{
+		    	white-space: nowrap;
+    			overflow: hidden;
+		    }
+				@media screen and (max-width: 576px){
+
+				}
+		    .tweet-date {
+		    	flex-grow: 1;
+		    }
+			}
+			>.card-block {
+				padding-top: 1rem;
+			}
+
+			margin: .75rem;
+				@media screen and (max-width: 576px){
+					margin-bottom: 2rem;
+					>.card-header {
+						font-size: 1.7rem;
+						max-height: 4rem;
+					}
+				}
+
+		}
+
+}
 
 
 // for cards used as section headers
@@ -103,7 +144,6 @@ div.card#header-card {
 }
 
 div.card-fullwidth {
-	width: 70%;
 	margin: auto;
 	margin-top: 25px;
 
@@ -112,5 +152,8 @@ div.card-fullwidth {
 		width: 80%;
 	}
 
+}
+.medium-article {
+	width: 70%;
 }
 
