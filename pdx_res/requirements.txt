@@ -16,3 +16,4 @@ xmltodict==0.10.2
 Twitter==1.17.1
 requests==2.13.0
 timeago==1.0.7
+twitter-text-python==1.1.0

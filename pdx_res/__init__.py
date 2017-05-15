@@ -1,6 +1,9 @@
 from datetime import datetime
 from flask import Flask, render_template, request, g, abort, jsonify, url_for
+
 from twitter import *
+from ttp import ttp
+
 import pytumblr, os
 import requests, json, xmltodict, time, timeago
 
@@ -69,19 +72,37 @@ def xml_post():
 def workgroups(group):
 	return render_template('page/%s.html' % group)
 
-
 @app.route('/tweets')
 def tweets():
 	tweets = twitter.statuses.user_timeline(screen_name='pdx_resistance', count=20)
+
+	# for tweet in tweets:
+	# 	text = tweet['text'].encode('ascii', 'ignore')		
+		
+	# 	p = ttp.Parser()
+	# 	result = p.parse(text)
+		
+	# 	tweet['text_parsed'] = result.html
+
 	tweetpile = {
 		'title': 'hey heres some tweetz',
 		'tweets': tweets
 	}
 	return jsonify(tweetpile)
 
+
 @app.route('/connect')
 def connect():
 	tweetpile = twitter.statuses.user_timeline(screen_name='pdx_resistance', count=10)
+	for tweet in tweetpile:
+		text = tweet['text'].encode('ascii', 'ignore')		
+		
+		p = ttp.Parser()
+		result = p.parse(text)
+		
+		tweet['text_parsed'] = result.html
+
+
 	return render_template('page/connect.html', tweets=tweetpile)
 
 

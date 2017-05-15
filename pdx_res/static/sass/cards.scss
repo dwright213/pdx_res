@@ -22,46 +22,46 @@ $tags-btn-tags-hover: 'a.tags-button:active, a.tags-button:hover, a.tags-button:
 	z-index: 1;
 
 	figure {
-	  // Ensures the caption's text aligns with the image.
-	  display: inline-block;
+		// Ensures the caption's text aligns with the image.
+		display: inline-block;
 		max-width: 50%;
 		text-align: center!important;
 		img {
-		  margin-bottom: ($spacer-y / 2);
-		  line-height: 1;
-		  width: 100%;
-		  border-radius: .25rem;
+			margin-bottom: ($spacer-y / 2);
+			line-height: 1;
+			width: 100%;
+			border-radius: .25rem;
 		}
 	figcaption {
-	  font-size: 70%;
-	  color: $figure-caption-color;
+		font-size: 70%;
+		color: $figure-caption-color;
 		}
 	}
 
 
 	#{$a-tags} {
-	  color: #5e5e5e;
-	  text-decoration: underline;
+		color: #5e5e5e;
+		text-decoration: underline;
 	}
 	#{$a-tags-hover} {
-	  color: #000;
-	  text-decoration: underline;
+		color: #000;
+		text-decoration: underline;
 	}
 
 	#{$btn-tags} {
-	  color: #292b2c;
-	  text-decoration: none;
+		color: #292b2c;
+		text-decoration: none;
 	}
 	#{$btn-tags-hover} {
-	  color: #fff;
-	  text-decoration: none;
-	  background-color: #6b4f78;
+		color: #fff;
+		text-decoration: none;
+		background-color: #6b4f78;
 
 	}
 	#{$tags-btn-tags-hover} {
-	  color: #fff;
-	  text-decoration: none;
-	  background-color: #5bc0de;
+		color: #fff;
+		text-decoration: none;
+		background-color: #5bc0de;
 
 	}
 	.btn {
@@ -105,20 +105,20 @@ $tags-btn-tags-hover: 'a.tags-button:active, a.tags-button:hover, a.tags-button:
 			>.card-header {
 				overflow: visible;
 				max-height: 3rem;
-		    display: flex;
-		    align-items: center;
-		    z-index: 1;
-		    font-size: 1.1rem;
-		    >.twitter-name{
-		    	white-space: nowrap;
-    			overflow: hidden;
-		    }
+				display: flex;
+				align-items: center;
+				z-index: 1;
+				font-size: 1.1rem;
+				>.twitter-name{
+					white-space: nowrap;
+					overflow: hidden;
+				}
 				@media screen and (max-width: 576px){
 
 				}
-		    .tweet-date {
-		    	flex-grow: 1;
-		    }
+				.tweet-date {
+					flex-grow: 1;
+				}
 			}
 			>.card-block {
 				padding-top: 1rem;
