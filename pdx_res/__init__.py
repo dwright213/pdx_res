@@ -2,8 +2,7 @@ from datetime import datetime
 from flask import Flask, render_template, request, g, abort, jsonify, url_for
 from twitter import *
 import pytumblr, os
-import requests, json, xmltodict, time
-
+import requests, json, xmltodict, time, timeago
 
 app = Flask(__name__)
 app.config.from_pyfile('../settings.cfg')
@@ -40,8 +39,9 @@ twitter = Twitter(auth=OAuth(\
 # jinja filter haning around here momentarily
 @app.template_filter()
 def format_date(date_string):
-	date = datetime.strptime(date_string, '%a %b %d %H:%M:%S +0000 %Y').strftime('%-m/%-d')
-	return date
+	date = datetime.strptime(date_string, '%a %b %d %H:%M:%S +0000 %Y')
+	time_since = timeago.format(date)
+	return time_since
 
 
 @app.before_request
@@ -81,7 +81,7 @@ def tweets():
 
 @app.route('/connect')
 def connect():
-	tweetpile = twitter.statuses.user_timeline(screen_name='pdx_resistance', count=100)
+	tweetpile = twitter.statuses.user_timeline(screen_name='pdx_resistance', count=10)
 	return render_template('page/connect.html', tweets=tweetpile)
 
 
