@@ -49,8 +49,33 @@ graph = facebook.GraphAPI(access_token=fbtoken, version='2.7')
 @app.template_filter()
 def format_date(date_string):
 	date = datetime.strptime(date_string, '%a %b %d %H:%M:%S +0000 %Y')
+	print('''
+		''')
+	print(date_string)
+	print(date)
+	print('''
+
+			''')
 	time_since = timeago.format(date)
 	return time_since
+
+@app.template_filter()
+def format_iso(date_string):
+	date = datetime.strptime(date_string, '%Y-%m-%dT%H:%M:%S+0000')
+	print('''
+		''')
+	print(date_string)
+	print(date)
+	print('''
+
+			''')
+	time_since = timeago.format(date)
+	# '%a %b %d %H:%M:%S +0000 %Y'
+
+	# '%Y-%m-%dT%H:%M:%S+0000'
+	# '2017-06-04T00:00:00+0000'
+	return time_since
+
 
 
 @app.before_request
@@ -87,10 +112,6 @@ def tweets():
 	}
 	return jsonify(tweetpile)
 
-
-
-
-
 @app.route('/fb_events')
 def fb_events():
 	page_id = app.config['FB_ID']
@@ -103,13 +124,10 @@ def fb_status():
 	posts = graph.get_object(id=page_id,fields='posts.limit(10){link,message,picture}')
 	return jsonify(posts)
 
-
-
-
-
-
 @app.route('/connect')
 def connect():
+	page_id = app.config['FB_ID']
+	statuspile = graph.get_object(id=page_id,fields='posts.limit(10){link,message,picture,created_time}')
 	tweetpile = twitter.statuses.user_timeline(screen_name='pdx_resistance', count=10)
 	for tweet in tweetpile:
 		text = tweet['text'].encode('ascii', 'ignore')		
@@ -117,7 +135,7 @@ def connect():
 		result = p.parse(text)
 		tweet['text_parsed'] = result.html
 
-	return render_template('page/connect.html', tweets=tweetpile)
+	return render_template('page/connect.html', tweets=tweetpile, statuses=statuspile['posts']['data'])
 
 
 if __name__ == "__main__":

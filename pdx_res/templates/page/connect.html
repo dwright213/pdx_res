@@ -43,6 +43,36 @@
 
 		</div>
 
+		<div class="card-columns col-lg-5 col-md-6">
+
+			{% for status in statuses %}
+				<div class="card tweet-card">
+				{% if status.picture %}
+					<img class="card-img-top img-fluid" src="{{ status.picture }}" alt="Card image cap">
+				{% endif %}
+
+				<div class="card-header">
+						<img class="img-thumbnail float-left" src="AN_IMAGE">
+						<div class="twitter-name">
+							Portland's Resistance
+						</div>
+						<div class="tweet-date text-right">
+							<small class="text-muted">{{ status.created_time|format_iso }}</small>
+						</div>
+						<div class="tweet-date hidden-sm-up text-right">
+							<small class="text-muted">{{ status.created_time }}</small>
+						</div>
+				</div>
+					<div class="card-block">
+					<p class="card-text">
+					{{ status.message }}
+					</p>
+				</div>
+			</div>
+			{% endfor %}
+
+		</div>
+
 	<!-- end .card-table -->
 	</div>
 </div>
