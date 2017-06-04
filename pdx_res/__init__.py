@@ -3,8 +3,10 @@ from flask import Flask, render_template, request, g, abort, jsonify, url_for
 
 from twitter import *
 from ttp import ttp
+import facebook
+from facebook import GraphAPI
 
-import pytumblr, os
+import os
 import requests, json, xmltodict, time, timeago
 
 app = Flask(__name__)
@@ -39,7 +41,11 @@ twitter = Twitter(auth=OAuth(\
 	app.config['TWITTER_CONSUMER_KEY'],\
 	app.config['TWITTER_CONSUMER_SECRET']))
 
-# jinja filter haning around here momentarily
+# facebook stuff can reside here
+fbtoken = app.config['FB_TOKEN']
+graph = facebook.GraphAPI(access_token=fbtoken, version='2.7')
+
+# jinja filter hanging around here momentarily
 @app.template_filter()
 def format_date(date_string):
 	date = datetime.strptime(date_string, '%a %b %d %H:%M:%S +0000 %Y')
@@ -75,15 +81,6 @@ def workgroups(group):
 @app.route('/tweets')
 def tweets():
 	tweets = twitter.statuses.user_timeline(screen_name='pdx_resistance', count=20)
-
-	# for tweet in tweets:
-	# 	text = tweet['text'].encode('ascii', 'ignore')		
-		
-	# 	p = ttp.Parser()
-	# 	result = p.parse(text)
-		
-	# 	tweet['text_parsed'] = result.html
-
 	tweetpile = {
 		'title': 'hey heres some tweetz',
 		'tweets': tweets
@@ -91,17 +88,34 @@ def tweets():
 	return jsonify(tweetpile)
 
 
+
+
+
+@app.route('/fb_events')
+def fb_events():
+	page_id = app.config['FB_ID']
+	events = graph.get_object(id=page_id,fields='about,events.limit(10)')
+	return jsonify(events)
+
+@app.route('/fb_posts')
+def fb_status():
+	page_id = app.config['FB_ID']
+	posts = graph.get_object(id=page_id,fields='posts.limit(10){link,message,picture}')
+	return jsonify(posts)
+
+
+
+
+
+
 @app.route('/connect')
 def connect():
 	tweetpile = twitter.statuses.user_timeline(screen_name='pdx_resistance', count=10)
 	for tweet in tweetpile:
 		text = tweet['text'].encode('ascii', 'ignore')		
-		
 		p = ttp.Parser()
 		result = p.parse(text)
-		
 		tweet['text_parsed'] = result.html
-
 
 	return render_template('page/connect.html', tweets=tweetpile)
 
