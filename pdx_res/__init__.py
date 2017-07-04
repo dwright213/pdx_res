@@ -49,31 +49,13 @@ graph = facebook.GraphAPI(access_token=fbtoken, version='2.7')
 @app.template_filter()
 def format_date(date_string):
 	date = datetime.strptime(date_string, '%a %b %d %H:%M:%S +0000 %Y')
-	print('''
-		''')
-	print(date_string)
-	print(date)
-	print('''
-
-			''')
 	time_since = timeago.format(date)
 	return time_since
 
 @app.template_filter()
 def format_iso(date_string):
 	date = datetime.strptime(date_string, '%Y-%m-%dT%H:%M:%S+0000')
-	print('''
-		''')
-	print(date_string)
-	print(date)
-	print('''
-
-			''')
 	time_since = timeago.format(date)
-	# '%a %b %d %H:%M:%S +0000 %Y'
-
-	# '%Y-%m-%dT%H:%M:%S+0000'
-	# '2017-06-04T00:00:00+0000'
 	return time_since
 
 
