@@ -157,3 +157,17 @@ div.card-fullwidth {
 	width: 70%;
 }
 
+// for facebook link cards
+.fb-link-card {
+	#{$a-tags} {
+		text-decoration: none;
+	}
+	#{$a-tags-hover} {
+		text-decoration: none;
+	}
+
+	background-color: #e4e4e4;
+	.card-block {
+		background-color: rgba(0, 0, 0, 0);
+	}
+}

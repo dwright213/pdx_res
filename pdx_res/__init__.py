@@ -103,13 +103,36 @@ def fb_events():
 @app.route('/fb_posts')
 def fb_status():
 	page_id = app.config['FB_ID']
-	posts = graph.get_object(id=page_id,fields='posts.limit(10){link,message,picture}')
-	return jsonify(posts)
+	statuspile = graph.get_object(id=page_id,fields='posts.limit(10){link,message,full_picture,picture,description,caption,name,type,created_time},picture')
+
+	statuses = statuspile['posts']['data']
+	for status in statuses:
+		try:
+			desc = status['description'].encode('ascii', 'ignore')
+			print(len(desc))
+			if len(desc) > 255:
+				print('oops, thhis is  a long one')
+				split_desc = desc.split(' ')
+				print(len(split_desc))
+				for index, word in enumerate(split_desc):
+					if index > 25:
+						
+
+				print('''
+
+					''')
+
+		except:
+			print('no descriptions here...')
+
+	return jsonify(statuspile)
 
 @app.route('/connect')
 def connect():
 	page_id = app.config['FB_ID']
-	statuspile = graph.get_object(id=page_id,fields='posts.limit(10){link,message,picture,created_time}')
+	statuspile = graph.get_object(id=page_id,fields='posts.limit(10){link,message,full_picture,picture,description,caption,name,type,created_time},picture')
+
+
 	tweetpile = twitter.statuses.user_timeline(screen_name='pdx_resistance', count=10)
 	for tweet in tweetpile:
 		text = tweet['text'].encode('ascii', 'ignore')		
@@ -117,7 +140,7 @@ def connect():
 		result = p.parse(text)
 		tweet['text_parsed'] = result.html
 
-	return render_template('page/connect.html', tweets=tweetpile, statuses=statuspile['posts']['data'])
+	return render_template('page/connect.html', tweets=tweetpile, statuses=statuspile['posts']['data'], fb_pic=statuspile['picture']['data']['url'])
 
 
 if __name__ == "__main__":

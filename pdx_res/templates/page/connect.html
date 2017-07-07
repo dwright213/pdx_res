@@ -47,12 +47,8 @@
 
 			{% for status in statuses %}
 				<div class="card tweet-card">
-				{% if status.picture %}
-					<img class="card-img-top img-fluid" src="{{ status.picture }}" alt="Card image cap">
-				{% endif %}
-
 				<div class="card-header">
-						<img class="img-thumbnail float-left" src="AN_IMAGE">
+						<img class="img-thumbnail float-left" src="{{ fb_pic }}">
 						<div class="twitter-name">
 							Portland's Resistance
 						</div>
@@ -66,6 +62,27 @@
 					<div class="card-block">
 					<p class="card-text">
 					{{ status.message }}
+
+					{% if status.type == 'link' %}
+						<div class="card fb-link-card">
+							<a href="{{ status.link }}">
+							{% if status.full_picture %}
+								<img class="card-img-top img-fluid" src="{{ status.full_picture }}" alt="Image to illustrate linked story.">
+							{% else %}
+								<img class="card-img-top img-fluid" src="{{ status.picture }}" alt="Image to illustrate linked story.">
+							{% endif %}
+
+							</a>
+							<div class="card-block">
+								<h5 class="card-title">
+									<a href="{{ status.link }}">
+										{{ status.name }}
+									</a>
+								</h5>
+								<p class="card-text">{{ status.description }}</p>
+							</div>
+						</div>
+					{% endif %}
 					</p>
 				</div>
 			</div>
