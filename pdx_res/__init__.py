@@ -118,9 +118,7 @@ def fb_status():
 					if index > 25:
 						
 
-				print('''
-
-					''')
+						print('''	''')
 
 		except:
 			print('no descriptions here...')
